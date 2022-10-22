@@ -10,7 +10,7 @@ const uploadPathResolver = (filename) => {
 
 const imageProcessor = (filename) => {
     const sourcePath = uploadPathResolver(filename);
-    const resizedDestination = uploadPathResolver('resized-', + filename);
+    const resizedDestination = uploadPathResolver('resized-' + filename);
     const monochromeDestination = uploadPathResolver('monochrome-' + filename);
     let resizeWorkerFinished = false;
     let monochromeWorkerFinished = false;
@@ -20,10 +20,10 @@ const imageProcessor = (filename) => {
             try {
                 const resizeWorker = new Worker(pathToResizeWorker, {
                     workerData: {
-                        source: sourcePath,
-                        destination: resizedDestination,
+                      source: sourcePath,
+                      destination: resizedDestination,
                     },
-                });
+                  });
 
                 const monochromeWorker = new Worker(pathToMonochromeWorker, {
                     workerData: {
