@@ -7,7 +7,7 @@ let filename = (request, file, callback)=>{
 callback(null, file.orininalname);
 };
 
-const storage = multer.diskStorate({
+const storage = multer.diskStorage({
     destination: 'api/uploads/',
     filename: filename
 });
