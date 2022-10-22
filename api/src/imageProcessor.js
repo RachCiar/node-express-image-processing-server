@@ -21,15 +21,15 @@ const imageProcessor = (filename) => {
                 const resizeWorker = new Worker(pathToResizeWorker, {
                     workerData: {
                         source: sourcePath,
-                        destination: resizedDestination
+                        destination: resizedDestination,
                     },
                 });
 
                 const monochromeWorker = new Worker(pathToMonochromeWorker, {
                     workerData: {
                         source: sourcePath,
-                        destination: monochromeDestination
-                    }
+                        destination: monochromeDestination,
+                    },
                 });
 
                 resizeWorker.on('message', (message) => {
@@ -71,10 +71,10 @@ const imageProcessor = (filename) => {
                 reject(error);
             }
         } else {
-            reject(new Error('not on main thread'))
+            reject(new Error('not on main thread'));
         }
 
     });
 };
 
-module.exports = imageProcessor();
+module.exports = imageProcessor;
