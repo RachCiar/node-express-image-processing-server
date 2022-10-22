@@ -4,7 +4,7 @@ const multer = require('multer');
 const router = Router();
 
 let filename = (request, file, callback)=>{
-callback(null, file.orininalname);
+callback(null, file.originalname);
 };
 
 const storage = multer.diskStorage({
